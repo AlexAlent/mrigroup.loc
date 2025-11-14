@@ -182,18 +182,40 @@ t.each(this.$form.find('input[type="tel"]'),(e,i)=>{
   const n=t(i);
   // для полей с классом mask-phone применяем маску на 11 цифр
   if(n.hasClass("mask-phone")){
-    n.mask("99999999999",{autoclear:!0,placeholder:""});
+    n.mask("99999999999",{autoclear:!1,placeholder:""});
     n.rules && n.rules("remove","phoneRU");
-    n.rules && n.rules("add",{required:!0,minlength:11,maxlength:11,digits:!0});
+    n.rules && n.rules("add",{
+      required:!0,
+      minlength:11,
+      maxlength:11,
+      digits:!0,
+      messages: {
+        required: "Введите номер телефона",
+        minlength: "Введите минимум 11 цифр",
+        maxlength: "Введите не более 11 цифр",
+        digits: "Только цифры"
+      }
+    });
     return;
   }
   n.on("blur.mask",e=>{ t(e.currentTarget).trigger("change") });
   // маска: только 10 цифр
-  n.mask("9999999999",{autoclear:!0,placeholder:""});
+  n.mask("9999999999",{autoclear:!1,placeholder:""});
   // убираем правило phoneRU (оно требовало формат +7 (...))
   n.rules && n.rules("remove","phoneRU");
   // простая проверка "ровно 10 цифр"
-  n.rules && n.rules("add",{required:!0,minlength:10,maxlength:10,digits:!0});
+  n.rules && n.rules("add",{
+    required:!0,
+    minlength:10,
+    maxlength:10,
+    digits:!0,
+    messages: {
+      required: "Введите номер телефона",
+      minlength: "Введите минимум 10 цифр",
+      maxlength: "Введите не более 10 цифр",
+      digits: "Только цифры"
+    }
+  });
 }),
 t.each(this.$form.find(".single-range"),(t,e)=>{ new s.a(e) }),
 t.each(this.$form.find(".time-range"),(t,e)=>{ new a.a(e) })
