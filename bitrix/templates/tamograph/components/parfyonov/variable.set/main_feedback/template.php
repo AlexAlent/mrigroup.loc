@@ -12,7 +12,7 @@ $bannerLink = tplvar('main_feedback_banner_link');
                         Получить консультацию
                     </h2>
 
-                    <form data-xhr-action="/local/forms/send.php" data-add-b24trace="true" method="POST" class="main-feedback__form form" novalidate="novalidate" autocomplete="off">
+                    <form data-xhr-action="/local/forms/send.php" data-add-b24trace="true" method="POST" action="javascript:void(0);" class="main-feedback__form form" novalidate="novalidate" autocomplete="off">
                         <input type="hidden" name="type" value="consult" />
 
                         <div class="row">

@@ -161,14 +161,22 @@
             }
 
             initialize() {
+                const self = this;
                 const e = this.$form.validate({
                     onfocusout: !1,
                     errorElement: "div",
                     focusInvalid: !1,
-                    ignore: ":hidden"
+                    ignore: ":hidden",
+                    submitHandler: function(form, event) {
+                        if (event) {
+                            event.preventDefault();
+                            event.stopImmediatePropagation();
+                        }
+                        self.handleSubmit({preventDefault: function(){}, stopPropagation: function(){}, data: {validator: e}});
+                        return false;
+                    }
                 });
-                this.$form.on("submit",{validator:e},this.handleSubmit),
-this.$form.on("custom:start",this.handleCustomStart),
+                this.$form.on("custom:start",this.handleCustomStart),
 this.$form.on("custom:stop",this.handleCustomStop),
 t.each(this.$form.find('input[type="tel"]'),(e,i)=>{
   const n=t(i);
@@ -180,8 +188,8 @@ t.each(this.$form.find('input[type="tel"]'),(e,i)=>{
     return;
   }
   n.on("blur.mask",e=>{ t(e.currentTarget).trigger("change") });
-  // маска: только 11 цифр
-  n.mask("99999999999",{autoclear:!1});
+  // маска: только 10 цифр
+  n.mask("9999999999",{autoclear:!0,placeholder:""});
   // убираем правило phoneRU (оно требовало формат +7 (...))
   n.rules && n.rules("remove","phoneRU");
   // простая проверка "ровно 10 цифр"
