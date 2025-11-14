@@ -1,5 +1,11 @@
 /.git
 /.idea
-/bitrix
+/bitrix/*
+!/bitrix/templates
+/bitrix/templates/*
+!/bitrix/templates/tamograph
 /upload
+/360
+/local/forms/crest/logs
+/*.xml
 test.php
