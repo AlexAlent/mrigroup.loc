@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Резонанс</title>
+
+    <meta name="description" content="" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/img/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/data/img/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/data/img/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/data/img/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/data/img/favicon/safari-pinned-tab.svg" color="#fbac4c" />
+    <link rel="shortcut icon" href="/data/img/favicon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-config" content="/data/img/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="stylesheet" href="/css/fancybox.css" media="print" onload="this.onload=null;this.media='all'" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+
+<body>
+    <div class="root">
+        <header class="header">
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-outer">
+                <ul class="topbar-nav nav">
+                    <li class="nav-item active">
+                        <a class="nav-link">
+                            <span>Вопросы-ответы</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Новости</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <span>Оплата и доставка</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="topbar-inner">
+                    <a href="#modal-location" class="link-location link-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10.77 17l-2.103-5.667L3 9.23V8.5L17 3l-5.5 14h-.73zm.397-3.25l3.166-8.083L6.25 8.833l3.563 1.354 1.354 3.563z"/></svg>
+                        <span>Воронеж</span>
+                    </a>
+
+                    <ul class="topbar-contacts nav">
+                        <li class="nav-item">
+                            <a href="tel:88005001719" class="nav-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M15.898 17a13.846 13.846 0 01-4.833-1.281 14.018 14.018 0 01-3.99-2.802 14.45 14.45 0 01-2.802-4 13.395 13.395 0 01-1.27-4.834.944.944 0 01.255-.76A.97.97 0 014.002 3h2.834c.236 0 .44.07.614.208a.984.984 0 01.344.563L8.294 6c.028.167.02.333-.021.5a.927.927 0 01-.25.438l-2.02 2.041a12.708 12.708 0 005 5l2.062-2a.906.906 0 01.454-.26 1.26 1.26 0 01.483-.01l2.23.479a.968.968 0 01.562.352.993.993 0 01.208.627V16c0 .375-.132.639-.396.792-.264.152-.5.222-.708.208zM5.315 7.52l1.458-1.457L6.416 4.5H4.544c.07.528.167 1.042.292 1.542.125.5.284.993.479 1.479zm7.166 7.168a9.87 9.87 0 001.491.47c.506.117 1.016.21 1.53.28v-1.876l-1.562-.333-1.459 1.459z"/></svg>
+                                <span>8 (800) 500-17-19</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="topbar-social social nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.145 9.135c4.08-1.772 6.796-2.949 8.16-3.52 3.882-1.62 4.698-1.9 5.223-1.912.116 0 .373.023.547.163.14.117.175.268.199.385.023.117.046.361.023.548-.21 2.215-1.12 7.588-1.586 10.06-.198 1.049-.582 1.399-.955 1.434-.816.07-1.434-.537-2.215-1.05-1.236-.804-1.924-1.305-3.124-2.098-1.387-.909-.49-1.41.303-2.226.21-.21 3.788-3.474 3.858-3.765.012-.035.012-.175-.07-.245-.081-.07-.198-.047-.291-.024-.128.024-2.087 1.33-5.898 3.905-.56.385-1.061.572-1.516.56-.501-.012-1.457-.28-2.18-.513-.874-.28-1.573-.431-1.515-.92.035-.257.385-.514 1.037-.782z"/></svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10.815 15.585c-5.74 0-9.015-3.935-9.15-10.483h2.874c.095 4.806 2.215 6.842 3.894 7.261v-7.26h2.707v4.145c1.658-.179 3.4-2.068 3.988-4.145h2.707c-.45 2.56-2.34 4.45-3.683 5.226 1.343.63 3.495 2.277 4.313 5.257h-2.98c-.64-1.994-2.235-3.536-4.345-3.746v3.746h-.325z"/></svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.963 10.26A4.274 4.274 0 017.01 9.07a4 4 0 01-1.23-2.858 4.048 4.048 0 011.225-2.88 4.325 4.325 0 012.96-1.225 4.3 4.3 0 011.615.312c.512.207.976.51 1.365.892.39.382.697.835.903 1.333.207.498.309 1.031.3 1.568a3.884 3.884 0 01-.304 1.557 3.99 3.99 0 01-.905 1.32c-.39.377-.854.675-1.365.876a4.255 4.255 0 01-1.61.295zm0-5.735a1.777 1.777 0 00-1.254.514c-.162.162-.29.355-.374.566a1.638 1.638 0 00-.115.663 1.57 1.57 0 00.506 1.181 1.713 1.713 0 001.237.45c.226.005.45-.034.66-.113.21-.08.402-.198.564-.35a1.634 1.634 0 00.52-1.168 1.638 1.638 0 00-.116-.663 1.68 1.68 0 00-.374-.566 1.747 1.747 0 00-.573-.38 1.795 1.795 0 00-.68-.134zm1.685 9.108l2.383 2.249a1.12 1.12 0 010 1.63c-.103.12-.232.216-.377.281a1.129 1.129 0 01-1.308-.28l-2.383-2.25-2.325 2.25a1.197 1.197 0 01-.872.337 1.42 1.42 0 01-.871-.338 1.12 1.12 0 010-1.63l2.44-2.249a12.293 12.293 0 01-2.498-1.068 1.227 1.227 0 01-.537-.738 1.19 1.19 0 01.13-.893c.089-.136.205-.253.342-.344a1.246 1.246 0 01.949-.184c.163.033.317.098.453.191a5.604 5.604 0 005.637 0 1.247 1.247 0 01.946-.193 1.244 1.244 0 01.797.53 1.196 1.196 0 01-.349 1.631c-.808.446-1.666.805-2.557 1.068z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-outer">
+                <a href="/" class="navbar-logo">
+                    <img src="/img/logo.svg" alt="" />
+                </a>
+
+                <div class="navbar-inner">
+                    <ul class="navbar-nav nav">
+                        <li class="nav-item dropdown active">
+                            <a href="javascript:;" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                                aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M5 8.75h2.5v-1.5H5v1.5zm4 0h12v-1.5H9v1.5zm12 5H9v-1.5h12v1.5zm-16 0h2.5v-1.5H5v1.5zm16 5H9v-1.5h12v1.5zm-16 0h2.5v-1.5H5v1.5z"/></svg>
+                                <span>Каталог</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item active">
+                                    <a class="dropdown-link">
+                                        <span>МРТ оборудование</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Компьютерные томографы </span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>УЗИ оборудование</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Товары для МРТ</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Запчасти для МРТ и КТ</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Прочее оборудование</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Денситометры</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Рентген-аппараты</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Инжекторы</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Маммографы</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="#" class="dropdown-link">
+                                        <span>Ангиографы</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Услуги</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Собственное производство</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Контакты</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-contacts nav">
+                        <li class="nav-item">
+                            <a href="tel:88005001719" class="nav-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.317 4.168a.63.63 0 01.236.417l.65 3.505c.03.208.024.388-.01.544a.773.773 0 01-.22.39l-2.56 2.586.096.166a16.64 16.64 0 002.677 3.427 18.893 18.893 0 003.534 2.76l.168.102 2.489-2.488a1.15 1.15 0 01.485-.276c.206-.064.404-.08.596-.055l3.44.698c.182.04.324.125.437.256.11.13.165.276.165.45v4.05a.768.768 0 01-.227.573.768.768 0 01-.573.227c-2.111 0-4.171-.47-6.181-1.414a18.816 18.816 0 01-5.355-3.75 18.816 18.816 0 01-3.75-5.355C4.47 8.971 4 6.911 4 4.8c0-.238.077-.423.227-.573A.768.768 0 014.8 4h4.05a.71.71 0 01.467.168zM6.546 9.85l.146.336 2.002-2.002L8.21 5.5H5.493l.034.28c.084.692.202 1.375.354 2.05.154.683.375 1.356.665 2.02zm10.772 6.903l-2.03 2.03.337.146c.663.289 1.339.519 2.028.689.688.17 1.381.28 2.079.331l.268.02v-2.674l-2.682-.542z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="offcanvas-toggler btn btn-toggler" data-target="offcanvas">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M23 7.75H3v-1.5h20v1.5zm0 6H3v-1.5h20v1.5zm0 6H3v-1.5h20v1.5z"/></svg>
+                    </button>
+
+                    <button type="button" class="searchbar-toggler btn btn-outline-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.981 17.042a7.5 7.5 0 111.06-1.06l5.224 5.223-1.06 1.06-5.224-5.223zm1.254-5.807a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="searchbar">
+        <div class="container">
+            <div class="searchbar-outer">
+                <form action="/" method="get" class="searchbar-form" novalidate="novalidate" autocomplete="off">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.981 17.042a7.5 7.5 0 111.06-1.06l5.224 5.223-1.06 1.06-5.224-5.223zm1.254-5.807a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                        </div>
+                        <input type="search" name="search_string" class="form-control" placeholder="Поиск"
+                            required="required" />
+                    </div>
+                </form>
+
+                <button type="button" class="searchbar-toggler btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M13 14.06l7.47 7.47 1.06-1.06L14.06 13l7.47-7.47-1.06-1.06L13 11.94 5.53 4.47 4.47 5.53 11.94 13l-7.47 7.47 1.06 1.06L13 14.06z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div id="offcanvas" class="offcanvas">
+    <div class="offcanvas-outer">
+        <div class="offcanvas-head">
+            <ul class="offcanvas-contacts nav">
+                <li class="nav-item">
+                    <a href="tel:88005001719" class="nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.317 4.168a.63.63 0 01.236.417l.65 3.505c.03.208.024.388-.01.544a.773.773 0 01-.22.39l-2.56 2.586.096.166a16.64 16.64 0 002.677 3.427 18.893 18.893 0 003.534 2.76l.168.102 2.489-2.488a1.15 1.15 0 01.485-.276c.206-.064.404-.08.596-.055l3.44.698c.182.04.324.125.437.256.11.13.165.276.165.45v4.05a.768.768 0 01-.227.573.768.768 0 01-.573.227c-2.111 0-4.171-.47-6.181-1.414a18.816 18.816 0 01-5.355-3.75 18.816 18.816 0 01-3.75-5.355C4.47 8.971 4 6.911 4 4.8c0-.238.077-.423.227-.573A.768.768 0 014.8 4h4.05a.71.71 0 01.467.168zM6.546 9.85l.146.336 2.002-2.002L8.21 5.5H5.493l.034.28c.084.692.202 1.375.354 2.05.154.683.375 1.356.665 2.02zm10.772 6.903l-2.03 2.03.337.146c.663.289 1.339.519 2.028.689.688.17 1.381.28 2.079.331l.268.02v-2.674l-2.682-.542z"/></svg>
+                    </a>
+                </li>
+            </ul>
+
+            <button type="button" class="offcanvas-toggler btn btn-toggler" data-target="offcanvas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path d="M13 14.06l7.47 7.47 1.06-1.06L14.06 13l7.47-7.47-1.06-1.06L13 11.94 5.53 4.47 4.47 5.53 11.94 13l-7.47 7.47 1.06 1.06L13 14.06z"/></svg>
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+            <form action="/" method="get" class="offcanvas-search" novalidate="novalidate" autocomplete="off">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.981 17.042a7.5 7.5 0 111.06-1.06l5.224 5.223-1.06 1.06-5.224-5.223zm1.254-5.807a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                    </div>
+                    <input type="search" name="search_string" class="form-control" placeholder="Поиск"
+                        required="required" />
+                </div>
+            </form>
+
+            <a href="#modal-location" class="link-location link-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10.77 17l-2.103-5.667L3 9.23V8.5L17 3l-5.5 14h-.73zm.397-3.25l3.166-8.083L6.25 8.833l3.563 1.354 1.354 3.563z"/></svg>
+                <span>Воронеж</span>
+            </a>
+
+            <ul class="offcanvas-nav nav">
+                <li class="nav-item dropdown active open">
+                    <a href="javascript:;" class="nav-link dropdown-toggle">
+                        <span>Каталог</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.97 10.28l1.06-1.06L13 15.19l5.97-5.97 1.06 1.06L13 17.31l-7.03-7.03z"/></svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item active">
+                            <a class="dropdown-link">
+                                <span>МРТ оборудование</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Компьютерные томографы </span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>УЗИ оборудование</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Товары для МРТ</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Запчасти для МРТ и КТ</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Прочее оборудование</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Денситометры</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Рентген-аппараты</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Инжекторы</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Маммографы</span>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="#" class="dropdown-link">
+                                <span>Ангиографы</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span>Услуги</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span>Собственное производство</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span>Контакты</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="offcanvas-foot">
+            <ul class="offcanvas-contacts nav">
+                <li class="nav-item">
+                    <a href="tel:88005001719" class="nav-link">
+                        <span>8 (800) 500-17-19</span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="offcanvas-social social nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.145 9.135c4.08-1.772 6.796-2.949 8.16-3.52 3.882-1.62 4.698-1.9 5.223-1.912.116 0 .373.023.547.163.14.117.175.268.199.385.023.117.046.361.023.548-.21 2.215-1.12 7.588-1.586 10.06-.198 1.049-.582 1.399-.955 1.434-.816.07-1.434-.537-2.215-1.05-1.236-.804-1.924-1.305-3.124-2.098-1.387-.909-.49-1.41.303-2.226.21-.21 3.788-3.474 3.858-3.765.012-.035.012-.175-.07-.245-.081-.07-.198-.047-.291-.024-.128.024-2.087 1.33-5.898 3.905-.56.385-1.061.572-1.516.56-.501-.012-1.457-.28-2.18-.513-.874-.28-1.573-.431-1.515-.92.035-.257.385-.514 1.037-.782z"/></svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10.815 15.585c-5.74 0-9.015-3.935-9.15-10.483h2.874c.095 4.806 2.215 6.842 3.894 7.261v-7.26h2.707v4.145c1.658-.179 3.4-2.068 3.988-4.145h2.707c-.45 2.56-2.34 4.45-3.683 5.226 1.343.63 3.495 2.277 4.313 5.257h-2.98c-.64-1.994-2.235-3.536-4.345-3.746v3.746h-.325z"/></svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.963 10.26A4.274 4.274 0 017.01 9.07a4 4 0 01-1.23-2.858 4.048 4.048 0 011.225-2.88 4.325 4.325 0 012.96-1.225 4.3 4.3 0 011.615.312c.512.207.976.51 1.365.892.39.382.697.835.903 1.333.207.498.309 1.031.3 1.568a3.884 3.884 0 01-.304 1.557 3.99 3.99 0 01-.905 1.32c-.39.377-.854.675-1.365.876a4.255 4.255 0 01-1.61.295zm0-5.735a1.777 1.777 0 00-1.254.514c-.162.162-.29.355-.374.566a1.638 1.638 0 00-.115.663 1.57 1.57 0 00.506 1.181 1.713 1.713 0 001.237.45c.226.005.45-.034.66-.113.21-.08.402-.198.564-.35a1.634 1.634 0 00.52-1.168 1.638 1.638 0 00-.116-.663 1.68 1.68 0 00-.374-.566 1.747 1.747 0 00-.573-.38 1.795 1.795 0 00-.68-.134zm1.685 9.108l2.383 2.249a1.12 1.12 0 010 1.63c-.103.12-.232.216-.377.281a1.129 1.129 0 01-1.308-.28l-2.383-2.25-2.325 2.25a1.197 1.197 0 01-.872.337 1.42 1.42 0 01-.871-.338 1.12 1.12 0 010-1.63l2.44-2.249a12.293 12.293 0 01-2.498-1.068 1.227 1.227 0 01-.537-.738 1.19 1.19 0 01.13-.893c.089-.136.205-.253.342-.344a1.246 1.246 0 01.949-.184c.163.033.317.098.453.191a5.604 5.604 0 005.637 0 1.247 1.247 0 01.946-.193 1.244 1.244 0 01.797.53 1.196 1.196 0 01-.349 1.631c-.808.446-1.666.805-2.557 1.068z"/></svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+        <div class="content">
+            <div class="section project">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#" class="breadcrumb-link">Главная</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#" class="breadcrumb-link">Второй уровень</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Третий уровень
+        </li>
+    </ol>
+</nav>
+
+
+                    <h1>Инсталяция МРТ кабинета</h1>
+
+                    <div class="section-header">
+                        Клиника «Олимп Здоровья»
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-9">
+                            <div class="section-content">
+                                <p>Аппарат магнитно-резонансной томографии (МРТ) - это высокотехнологичное медицинское
+                                    оборудование стоимостью в миллионы рублей. МР-томографы бывают нескольких видов.
+                                    Во-первых, их различают по мощностной характеристике - по напряженности магнитного
+                                    поля, которое измеряется в Теслах. Во-вторых, их принято классифицировать по
+                                    конструкции: открытые, закрытые, вертикальные. В независимости от типа МРТ аппарата
+                                    принцип сканирующего процесса остается неизменным, однако функциональные возможности
+                                    томографов отличаются.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-9">
+                            <div class="single-slider swiper">
+    <div class="swiper-blind-left"></div>
+    <div class="swiper-blind-right"></div>
+
+    <a class="single-slider-item swiper-slide">
+        <div class="single-slider-item__image">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="/data/img/slider/image-01.jpg" alt="" class="lazyload" />
+        </div>
+        <div class="single-slider-item__caption">
+            Discription
+        </div>
+    </a>
+    <a class="single-slider-item swiper-slide">
+        <div class="single-slider-item__image">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="/data/img/slider/image-01.jpg" alt="" class="lazyload" />
+        </div>
+        <div class="single-slider-item__caption">
+            Discription
+        </div>
+    </a>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section products">
+                <div class="container">
+                    <h2 class="section-title">
+                        Список товаров
+                    </h2>
+
+                    <div class="products-list cards-list row">
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                        <div class="products-item cards-item col-12 col-sm-6 col-lg">
+                            <div class="products-item__outer cards-item-outer">
+    <div class="products-item__head cards-item-head">
+        <div class="products-item__image cards-item-image">
+            <a href="#">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="/data/img/catalog/thumb-01.jpg" alt="" class="lazyload" />
+                <ul class="cards-item-image-list">
+                    <li data-src="/data/img/catalog/thumb-01.jpg" class="active"></li>
+                    <li data-src="/data/img/catalog/thumb-02.jpg"></li>
+                </ul>
+            </a>
+        </div>
+    </div>
+    <div class="products-item__body cards-item-body">
+        <div class="products-item__overline">
+            МРТ аппарат
+        </div>
+        <div class="products-item__title cards-item-title">
+            <a href="#" class="products-item__link cards-item-link">
+                Philips Prodiva 1.5 T CX
+            </a>
+        </div>
+        <div class="products-item__prices catalog-prices">
+            <div class="catalog-prices-item">
+                <span class="catalog-prices-item__value">100 000 000 ₽</span>
+                <span class="catalog-prices-item__discount">- 20%</span>
+            </div>
+            <div class="catalog-prices-item catalog-prices-item_type_old">
+                <span class="catalog-prices-item__value">120 000 000 ₽</span>
+            </div>
+        </div>
+        <div class="products-item__button">
+            <a href="#modal-offer" class="btn btn-outline-primary link-modal">
+                Запросить КП
+            </a>
+        </div>
+        <div class="products-item__props catalog-props">
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-01.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Состояние:</div>
+                <div class="catalog-props-item__value">Новое</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-02.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Напряженность:</div>
+                <div class="catalog-props-item__value">1,5Т</div>
+            </div>
+            <div class="catalog-props-item">
+                <div class="catalog-props-item__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/catalog/icon-03.svg" alt="" class="lazyload" />
+                </div>
+                <div class="catalog-props-item__title">Диаметр туннеля:</div>
+                <div class="catalog-props-item__value">60см</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+
+                    <div class="section-footer">
+                        <ul class="section-nav nav">
+    <li class="nav-item nav-prev disabled">
+        <a class="nav-link" tabindex="-1" aria-disabled="true" aria-label="Предыдущая новость">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.985 20.03l1.06-1.06-5.97-5.97 5.97-5.97-1.06-1.06L8.955 13l7.03 7.03z"/></svg>
+            <span>Предыдущая новость</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <span>Все новости</span>
+        </a>
+    </li>
+    <li class="nav-item nav-next">
+        <a href="#" class="nav-link" aria-label="Следующая новость">
+            <span>Следующая новость</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.015 20.03l-1.06-1.06 5.97-5.97-5.97-5.97 1.06-1.06 7.03 7.03-7.03 7.03z"/></svg>
+        </a>
+    </li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="section main-advantages">
+    <div class="container">
+        <div class="main-advantages__outer">
+            <h2 class="section-title">
+                Наши преимущества
+            </h2>
+
+            <div class="main-advantages__list row">
+                <div class="main-advantages__item main-advantages-item col-12 col-sm-4">
+                    <div class="main-advantages-item__outer">
+                        <div class="main-advantages-item__image">
+                            <img src="/data/img/advantages/image-01.png" alt="" />
+                        </div>
+                        <div class="main-advantages-item__text">
+                            Работаем по всей России
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-advantages__item main-advantages-item col-12 col-sm-4">
+                    <div class="main-advantages-item__outer">
+                        <div class="main-advantages-item__image">
+                            <img src="/data/img/advantages/image-02.png" alt="" />
+                        </div>
+                        <div class="main-advantages-item__text">
+                            Выезд на место в течение 6 часов после запроса
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-advantages__item main-advantages-item col-12 col-sm-4">
+                    <div class="main-advantages-item__outer">
+                        <div class="main-advantages-item__image">
+                            <img src="/data/img/advantages/image-03.png" alt="" />
+                        </div>
+                        <div class="main-advantages-item__text">
+                            Гарантия на оборудование и выполнение работ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="section main-feedback">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-9">
+                <div class="main-feedback__outer">
+                    <h2 class="section-title">
+                        Получить консультацию
+                    </h2>
+
+                    <form action="/data/api/success.html" method="get" class="main-feedback__form form"
+                        novalidate="novalidate" autocomplete="off">
+                        <div class="row">
+                            <div class="col-12 col-xl-4">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" placeholder="Имя" required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-4">
+                                <div class="form-group">
+                                    <input type="tel" name="phone" class="form-control" placeholder="Телефон"
+                                        required />
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-4">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="E-mail" />
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" placeholder="Ваш вопрос"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-auto">
+                                <button type="submit" class="btn btn-primary">Отправить</button>
+                            </div>
+                            <div class="col-12 col-md">
+                                <div class="form-text">
+                                    Нажимая на кнопку, я соглашаюсь на обработку <a href="#">персональных данных</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-xl-3 d-none d-xl-block">
+                <a href="#" class="main-feedback__banner">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="/data/img/banners/image-01.jpg" alt="" class="lazyload" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+        <footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-9">
+                    <ul class="footer-nav nav">
+                        <li class="nav-item active">
+                            <a class="nav-link">
+                                <span>О компании</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Реализованные проекты</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Оплата и доставка</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Акции</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Вопросы-ответы</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Бренды</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Каталог</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Блог</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Новости</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Контакты</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Услуги</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <ul class="footer-social social nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.145 9.135c4.08-1.772 6.796-2.949 8.16-3.52 3.882-1.62 4.698-1.9 5.223-1.912.116 0 .373.023.547.163.14.117.175.268.199.385.023.117.046.361.023.548-.21 2.215-1.12 7.588-1.586 10.06-.198 1.049-.582 1.399-.955 1.434-.816.07-1.434-.537-2.215-1.05-1.236-.804-1.924-1.305-3.124-2.098-1.387-.909-.49-1.41.303-2.226.21-.21 3.788-3.474 3.858-3.765.012-.035.012-.175-.07-.245-.081-.07-.198-.047-.291-.024-.128.024-2.087 1.33-5.898 3.905-.56.385-1.061.572-1.516.56-.501-.012-1.457-.28-2.18-.513-.874-.28-1.573-.431-1.515-.92.035-.257.385-.514 1.037-.782z"/></svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M10.815 15.585c-5.74 0-9.015-3.935-9.15-10.483h2.874c.095 4.806 2.215 6.842 3.894 7.261v-7.26h2.707v4.145c1.658-.179 3.4-2.068 3.988-4.145h2.707c-.45 2.56-2.34 4.45-3.683 5.226 1.343.63 3.495 2.277 4.313 5.257h-2.98c-.64-1.994-2.235-3.536-4.345-3.746v3.746h-.325z"/></svg>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.963 10.26A4.274 4.274 0 017.01 9.07a4 4 0 01-1.23-2.858 4.048 4.048 0 011.225-2.88 4.325 4.325 0 012.96-1.225 4.3 4.3 0 011.615.312c.512.207.976.51 1.365.892.39.382.697.835.903 1.333.207.498.309 1.031.3 1.568a3.884 3.884 0 01-.304 1.557 3.99 3.99 0 01-.905 1.32c-.39.377-.854.675-1.365.876a4.255 4.255 0 01-1.61.295zm0-5.735a1.777 1.777 0 00-1.254.514c-.162.162-.29.355-.374.566a1.638 1.638 0 00-.115.663 1.57 1.57 0 00.506 1.181 1.713 1.713 0 001.237.45c.226.005.45-.034.66-.113.21-.08.402-.198.564-.35a1.634 1.634 0 00.52-1.168 1.638 1.638 0 00-.116-.663 1.68 1.68 0 00-.374-.566 1.747 1.747 0 00-.573-.38 1.795 1.795 0 00-.68-.134zm1.685 9.108l2.383 2.249a1.12 1.12 0 010 1.63c-.103.12-.232.216-.377.281a1.129 1.129 0 01-1.308-.28l-2.383-2.25-2.325 2.25a1.197 1.197 0 01-.872.337 1.42 1.42 0 01-.871-.338 1.12 1.12 0 010-1.63l2.44-2.249a12.293 12.293 0 01-2.498-1.068 1.227 1.227 0 01-.537-.738 1.19 1.19 0 01.13-.893c.089-.136.205-.253.342-.344a1.246 1.246 0 01.949-.184c.163.033.317.098.453.191a5.604 5.604 0 005.637 0 1.247 1.247 0 01.946-.193 1.244 1.244 0 01.797.53 1.196 1.196 0 01-.349 1.631c-.808.446-1.666.805-2.557 1.068z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12">
+                    <ul class="footer-contacts nav">
+                        <li class="nav-item">
+                            <a href="tel:88005001719" class="nav-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M15.898 17a13.846 13.846 0 01-4.833-1.281 14.018 14.018 0 01-3.99-2.802 14.45 14.45 0 01-2.802-4 13.395 13.395 0 01-1.27-4.834.944.944 0 01.255-.76A.97.97 0 014.002 3h2.834c.236 0 .44.07.614.208a.984.984 0 01.344.563L8.294 6c.028.167.02.333-.021.5a.927.927 0 01-.25.438l-2.02 2.041a12.708 12.708 0 005 5l2.062-2a.906.906 0 01.454-.26 1.26 1.26 0 01.483-.01l2.23.479a.968.968 0 01.562.352.993.993 0 01.208.627V16c0 .375-.132.639-.396.792-.264.152-.5.222-.708.208zM5.315 7.52l1.458-1.457L6.416 4.5H4.544c.07.528.167 1.042.292 1.542.125.5.284.993.479 1.479zm7.166 7.168a9.87 9.87 0 001.491.47c.506.117 1.016.21 1.53.28v-1.876l-1.562-.333-1.459 1.459z"/></svg>
+                                <span>8 (800) 500-17-19</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="mailto:info@mrigroup.ru" class="nav-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 7a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7zm2.56-.5L13 13.94l7.44-7.44H5.56zM9.94 13L4.5 7.56v10.88L9.94 13zm10.5 6.5L15 14.06l-2 2-2-2-5.44 5.44h14.88zM16.06 13l5.44-5.44v10.88L16.06 13z"/></svg>
+                                <span>info@mrigroup.ru</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-side">
+            <div class="row">
+                <div class="col">
+                    <div class="copyright">
+                        Copyright © 2023. Все права защищены.
+                    </div>
+
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <span>Политика обработки персональных данных</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-lg-auto">
+                    <div class="developer">
+                        <span class="developer-text">
+                            Создание сайта — Студия Парфенова
+                        </span>
+                        <a href="https://parfyonov.ru/" class="developer-link" target="_blank">
+                            <span>a</span>.parfyonov
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+
+    <div style="display: none;" id="modal-offer" class="modal">
+    <div class="modal-outer">
+        <div class="modal-overline">
+            Коммерческое предложение
+        </div>
+        <div class="modal-title">
+            Philips Prodiva 1.5 T CX
+        </div>
+        <form action="/data/api/success.html" method="get" class="modal-form form" novalidate="novalidate"
+            autocomplete="off">
+            <input type="hidden" name="id" value="1" />
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Имя" required />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-control" placeholder="Телефон" required />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="E-mail" />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" placeholder="Ваш вопрос"></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Удобное время для звонка</label>
+                        <div class="form-range double-range">
+                            <input type="text" name="from" value="08:00"
+                                class="form-range-input input-from form-control" />
+                            <input type="text" name="to" value="22:00" class="form-range-input input-to form-control" />
+                            <div class="form-range-slider input-slider" data-min="08:00" data-max="22:00"
+                                data-start="08:00" data-end="22:00"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Отправить запрос</button>
+                </div>
+                <div class="col-12">
+                    <div class="form-text">
+                        Нажимая на кнопку, я соглашаюсь на обработку <a href="#">персональных данных</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="display: none;" id="modal-feedback" class="modal">
+    <div class="modal-outer">
+        <div class="modal-overline">
+            Обратный звонок
+        </div>
+        <div class="modal-title">
+            Контакты для связи
+        </div>
+        <form action="/data/api/success.html" method="get" class="modal-form form" novalidate="novalidate"
+            autocomplete="off">
+            <input type="hidden" name="id" value="1" />
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="Имя" required />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-control" placeholder="Телефон" required />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="E-mail" />
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea name="message" class="form-control" placeholder="Ваш вопрос"></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label>Удобное время для звонка</label>
+                        <div class="form-range double-range">
+                            <input type="text" name="from" value="08:00"
+                                class="form-range-input input-from form-control" />
+                            <input type="text" name="to" value="22:00" class="form-range-input input-to form-control" />
+                            <div class="form-range-slider input-slider" data-min="08:00" data-max="22:00"
+                                data-start="08:00" data-end="22:00"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Отправить запрос</button>
+                </div>
+                <div class="col-12">
+                    <div class="form-text">
+                        Нажимая на кнопку, я соглашаюсь на обработку <a href="#">персональных данных</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="display: none;" id="modal-location" class="modal">
+    <div class="modal-outer">
+        <div class="modal-title">
+            Выберите город
+        </div>
+
+        <form class="modal-search" novalidate="novalidate" autocomplete="off">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.981 17.042a7.5 7.5 0 111.06-1.06l5.224 5.223-1.06 1.06-5.224-5.223zm1.254-5.807a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+                </div>
+                <input type="search" name="search_string" class="form-control" placeholder="Ваш город"
+                    required="required" />
+            </div>
+        </form>
+
+        <ul class="location-list">
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Москва</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Санкт-Петербург</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Екатеринбург</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Воронеж</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Казань</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Краснодар</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Омск</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Пермь</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Самара</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Саратов</span>
+                </a>
+            </li>
+            <li class="location-item">
+                <a class="location-link">
+                    <span>Уфа</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <script src="/js/vendors.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+
+</html>

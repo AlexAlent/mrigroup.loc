@@ -1,0 +1,88 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"О компании", 
+		SITE_DIR."about/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		SITE_DIR."/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Блог", 
+		SITE_DIR."blog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		SITE_DIR."kontakty/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Каталог", 
+		SITE_DIR."catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Спецпредложения", 
+		SITE_DIR."/catalog/in_stock", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Производство", 
+		SITE_DIR."proizvodstvo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Реализованные проекты", 
+		SITE_DIR."realizovannye-proekty/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Услуги", 
+		SITE_DIR."uslugi/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Оплата и доставка", 
+		SITE_DIR."/delivery/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Отзывы", 
+		SITE_DIR."reviews/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Вопросы ответы", 
+		SITE_DIR."voprosy-otvety/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

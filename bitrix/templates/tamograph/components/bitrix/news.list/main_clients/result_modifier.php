@@ -1,0 +1,31 @@
+<?php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+/** @var array $arParams */
+/** @var array $arResult */
+/** @global CMain $APPLICATION */
+/** @global CUser $USER */
+/** @global CDatabase $DB */
+/** @var CBitrixComponentTemplate $this */
+/** @var string $templateName */
+/** @var string $templateFile */
+/** @var string $templateFolder */
+/** @var string $componentPath */
+/** @var CBitrixComponent $component */
+
+$items = [];
+
+if(isset($arResult['ITEMS']) && is_array($arResult['ITEMS'])) {
+    foreach($arResult['ITEMS'] as $item) {
+        if(!isset($item['PREVIEW_PICTURE'])) {
+            continue;
+        }
+
+        if(is_array($item['DISPLAY_PROPERTIES']) && isset($item['DISPLAY_PROPERTIES']['PROPERTY_LINK']) && $item['DISPLAY_PROPERTIES']['PROPERTY_LINK']['VALUE']) {
+            $item['URL'] = $item['DISPLAY_PROPERTIES']['PROPERTY_LINK']['VALUE'];
+        }
+
+        $items[] = $item;
+    }
+}
+
+$arResult['ITEMS'] = $items;
