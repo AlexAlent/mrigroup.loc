@@ -2,7 +2,7 @@
 <?php
 $tg = tplvar(MrigroupHelper::tplvar_index_social_tg);
 $vk = tplvar(MrigroupHelper::tplvar_index_social_vk);
-$ok = tplvar(MrigroupHelper::tplvar_index_social_ok);
+$ok = false; //tplvar(MrigroupHelper::tplvar_index_social_ok);
 
 if(!$tg && !$vk && !$ok) {
     return;
@@ -36,4 +36,9 @@ if(!$tg && !$vk && !$ok) {
             </a>
         </li>
     <?php endif;?>
+    <li class="nav-item">
+        <a href="mailto:info@mrigroup.ru" class="nav-link">
+            <img src="/bitrix/templates/tamograph/img/letter.png" alt="Email" style="width: 25px; height: 20px;" />
+        </a>
+    </li>
 </ul>
