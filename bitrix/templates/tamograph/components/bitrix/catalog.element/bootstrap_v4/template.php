@@ -236,10 +236,20 @@ $bShowCalculator = isset($arResult['PROPERTIES']['SHOW_CALCULATOR']) && isset($a
                     <div class="product-section">
                         <div class="product-button">
                             <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn btn-primary link-modal">Запросить КП</a>
-                            <a href="https://api.whatsapp.com/send?phone=79601147777&roistat_visit=156797" class="btn btn-outline-primary" target="_blank">
-                                <span>Задать вопрос</span>
-                                <img src="<?php echo SITE_TEMPLATE_PATH;?>/icons/icon-social-wa.svg" />
-                            </a>
+
+                            <div class="reasontobuy-swiper-btn-container">
+                                <div class="btn-border-container">
+                                    <div class="btn-border-bg">
+                                        <div class="btn-border-bg-item"></div>
+                                    </div>
+                                </div>
+                                <div class="reasontobuy-swiper-btns">
+                                    <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn link-modal">
+                                        <span>Узнать цену</span>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 

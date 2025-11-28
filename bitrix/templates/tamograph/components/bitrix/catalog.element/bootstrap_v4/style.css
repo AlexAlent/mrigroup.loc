@@ -1,0 +1,26 @@
+.product-button>.btn {
+    width: 50%;
+}
+
+.btn-border-container {
+    border-radius: 20px;
+}
+
+div.reasontobuy-swiper-btns {
+    border-radius: 20px;
+}
+
+div.reasontobuy-swiper-btns a {
+    color: #111;
+    font-weight: 600;
+}
+
+div.reasontobuy-swiper-btn-container {
+
+}
+
+@media (max-width: 767px) {
+    div.reasontobuy-swiper-btn-container {
+        width: 45%;
+    }
+}
