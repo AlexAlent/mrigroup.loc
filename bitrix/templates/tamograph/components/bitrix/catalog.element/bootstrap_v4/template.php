@@ -235,7 +235,7 @@ $bShowCalculator = isset($arResult['PROPERTIES']['SHOW_CALCULATOR']) && isset($a
 
                     <div class="product-section">
                         <div class="product-button">
-                            <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn btn-primary link-modal">Запросить КП</a>
+                            <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn custom-btn btn-primary link-modal">Запросить КП</a>
 
                             <div class="reasontobuy-swiper-btn-container">
                                 <div class="btn-border-container">
@@ -244,7 +244,7 @@ $bShowCalculator = isset($arResult['PROPERTIES']['SHOW_CALCULATOR']) && isset($a
                                     </div>
                                 </div>
                                 <div class="reasontobuy-swiper-btns">
-                                    <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn link-modal">
+                                    <a href="<?php echo MrigroupHelper::getModalOfferLink($arResult['ID']);?>" class="btn custom-btn link-modal">
                                         <span>Узнать цену</span>
                                     </a>
                                 </div>
@@ -264,7 +264,7 @@ $bShowCalculator = isset($arResult['PROPERTIES']['SHOW_CALCULATOR']) && isset($a
                         );
                     }?>
 
-                    <?php if($bShowCalculator):?>
+                    <?php if(true):?>
                         <div class="product-section">
                             <div class="product-button">
                                 <a href="#calc" class="btn btn-outline-primary">Калькулятор окупаемости</a>
