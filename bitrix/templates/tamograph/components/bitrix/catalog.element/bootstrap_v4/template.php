@@ -264,7 +264,7 @@ $bShowCalculator = isset($arResult['PROPERTIES']['SHOW_CALCULATOR']) && isset($a
                         );
                     }?>
 
-                    <?php if(true):?>
+                    <?php if($bShowCalculator):?>
                         <div class="product-section">
                             <div class="product-button">
                                 <a href="#calc" class="btn btn-outline-primary">Калькулятор окупаемости</a>
