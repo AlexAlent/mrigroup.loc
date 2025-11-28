@@ -38,7 +38,7 @@ $bannerLink = tplvar('main_feedback_banner_link');
                                 <div class="consent-form">
                                     <div class="form-check">
                                         <label class="form-check-label">
-                                            <input type="checkbox" name="advertising" required>
+                                            <input type="checkbox" name="advertising">
                                             <span class="form-check-icon"></span>
                                             <span class="form-check-text">Я даю свое <a href="/soglasie-na-poluchenie-reklamnoy-informatsii/" target="_blank" rel="nofollow" class="consent-link">согласие на получение рекламной информации</a>.</span>
                                         </label>
