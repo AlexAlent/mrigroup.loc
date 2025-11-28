@@ -31,7 +31,7 @@
     (function(w,d,u){
         var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
         var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
-    })(window,document,'https://corp.mrigroup.ru/upload/crm/tag/call.tracker.js');
+    })(window,document,'https://corp.mrigroup.ru/upload/crm/site_button/loader_2_28qbq8.js');
 </script>
 
 <script type="text/javascript">!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://vk.com/js/api/openapi.js?169',t.onload=function(){VK.Retargeting.Init("VK-RTRG-780633-1VLbh"),VK.Retargeting.Hit()},document.head.appendChild(t)}();</script><noscript><img src="https://vk.com/rtrg?p=VK-RTRG-780633-1VLbh" style="position:fixed; left:-999px;" alt=""/></noscript>
