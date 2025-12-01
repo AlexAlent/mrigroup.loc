@@ -52,7 +52,7 @@ CJSCore::Init(array("jquery"));
             'HIDE_ICONS' => 'Y'
         ]
     );?>
-	<script src="//code.jivo.ru/widget/SyHGGWKLNH" async></script>
+
 </head>
 <?
 $url = 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
