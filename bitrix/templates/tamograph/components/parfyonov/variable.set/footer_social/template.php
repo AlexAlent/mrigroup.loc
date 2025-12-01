@@ -2,7 +2,7 @@
 <?php
 $tg = tplvar(MrigroupHelper::tplvar_index_social_tg);
 $vk = tplvar(MrigroupHelper::tplvar_index_social_vk);
-$ok = tplvar(MrigroupHelper::tplvar_index_social_ok);
+$ok = false; //tplvar(MrigroupHelper::tplvar_index_social_ok);
 
 if(!$tg && !$vk && !$ok) {
     return;
