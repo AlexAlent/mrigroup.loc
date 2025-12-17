@@ -9,7 +9,7 @@ $statsText = isset($arParams['STATS_TEXT']) ? trim($arParams['STATS_TEXT']) : ''
 
 $tg = tplvar(MrigroupHelper::tplvar_index_social_tg);
 $vk = tplvar(MrigroupHelper::tplvar_index_social_vk);
-$ok = tplvar(MrigroupHelper::tplvar_index_social_ok);
+$ok = false; //tplvar(MrigroupHelper::tplvar_index_social_ok);
 ?>
 <div class="section main-about">
     <div class="container">
