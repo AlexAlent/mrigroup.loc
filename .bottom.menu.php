@@ -36,13 +36,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Спецпредложения", 
-		SITE_DIR."/catalog/in_stock", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Производство", 
 		SITE_DIR."proizvodstvo/", 
 		Array(), 

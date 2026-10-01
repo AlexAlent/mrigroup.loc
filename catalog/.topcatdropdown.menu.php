@@ -1,13 +1,6 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"В наличии", 
-		SITE_DIR."/catalog/in_stock/", 
-		Array("/catalog/in_stock/"), 
-		Array("FROM_IBLOCK"=>"1", "IS_PARENT"=>"", "DEPTH_LEVEL"=>"1"), 
-		"" 
-	),
-	Array(
 		"Магнитно-резонансные томографы", 
 		SITE_DIR."/catalog/magnitno_rezonansnye_tomografy/", 
 		Array("/catalog/magnitno_rezonansnye_tomografy/"), 
@@ -54,13 +47,6 @@ $aMenuLinks = Array(
 		SITE_DIR."/catalog/zapchasti_dlya_mrt_i_kt/", 
 		Array("/catalog/zapchasti_dlya_mrt_i_kt/"), 
 		Array("FROM_IBLOCK"=>"1", "IS_PARENT"=>"", "DEPTH_LEVEL"=>"1"), 
-		"" 
-	),
-	Array(
-		"Офтальмология", 
-		SITE_DIR."/catalog/oftalmologiya/", 
-		Array(), 
-		Array(), 
 		"" 
 	)
 );

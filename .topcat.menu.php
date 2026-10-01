@@ -8,13 +8,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Спецпредложения", 
-		SITE_DIR."/catalog/in_stock/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Услуги", 
 		SITE_DIR."/uslugi/", 
 		Array(), 
@@ -24,6 +17,13 @@ $aMenuLinks = Array(
 	Array(
 		"Производство", 
 		SITE_DIR."/proizvodstvo/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		SITE_DIR."/news/", 
 		Array(), 
 		Array(), 
 		"" 

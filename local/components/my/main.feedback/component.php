@@ -1,166 +1,402 @@
 <?php
-if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
- 
+
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
+    die();
+}
+
+require_once(
+    $_SERVER['DOCUMENT_ROOT']
+    . '/local/include/consent-evidence.php'
+);
+
 /**
- * Bitrix vars
- *
  * @var array $arParams
  * @var array $arResult
  * @var CBitrixComponent $this
  * @global CMain $APPLICATION
  * @global CUser $USER
  */
- 
-$arResult["PARAMS_HASH"] = md5(serialize($arParams).$this->GetTemplateName());
- 
-$arParams["USE_CAPTCHA"] = (($arParams["USE_CAPTCHA"] != "N" && !$USER->IsAuthorized()) ? "Y" : "N");
-$arParams["EVENT_NAME"] = trim($arParams["EVENT_NAME"]);
-if($arParams["EVENT_NAME"] == '')
-    $arParams["EVENT_NAME"] = "FEEDBACK_FORM";
-$arParams["EMAIL_TO"] = trim($arParams["EMAIL_TO"]);
-if($arParams["EMAIL_TO"] == '')
-    $arParams["EMAIL_TO"] = COption::GetOptionString("main", "email_from");
-$arParams["OK_TEXT"] = trim($arParams["OK_TEXT"]);
-if($arParams["OK_TEXT"] == '')
-    $arParams["OK_TEXT"] = GetMessage("MF_OK_MESSAGE");
- 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"] <> '' && (!isset($_POST["PARAMS_HASH"]) || $arResult["PARAMS_HASH"] === $_POST["PARAMS_HASH"]))
+
+$arResult['PARAMS_HASH'] = md5(
+    serialize($arParams) . $this->GetTemplateName()
+);
+
+/*
+ * CAPTCHA показываем всем посетителям, включая авторизованных
+ * администраторов, если параметр USE_CAPTCHA включён.
+ */
+$arParams['USE_CAPTCHA'] =
+    (($arParams['USE_CAPTCHA'] ?? 'N') === 'Y') ? 'Y' : 'N';
+
+$arParams['EVENT_NAME'] = trim((string)($arParams['EVENT_NAME'] ?? ''));
+
+if ($arParams['EVENT_NAME'] === '') {
+    $arParams['EVENT_NAME'] = 'FEEDBACK_FORM';
+}
+
+$arParams['EMAIL_TO'] = trim((string)($arParams['EMAIL_TO'] ?? ''));
+
+if ($arParams['EMAIL_TO'] === '') {
+    $arParams['EMAIL_TO'] = COption::GetOptionString(
+        'main',
+        'email_from'
+    );
+}
+
+$arParams['OK_TEXT'] = trim((string)($arParams['OK_TEXT'] ?? ''));
+
+if ($arParams['OK_TEXT'] === '') {
+    $arParams['OK_TEXT'] = GetMessage('MF_OK_MESSAGE');
+}
+
+function mriNormalizePhone($value)
 {
-    $arResult["ERROR_MESSAGE"] = array();
-    if(check_bitrix_sessid())
-    {
-        if(empty($arParams["REQUIRED_FIELDS"]) || !in_array("NONE", $arParams["REQUIRED_FIELDS"]))
-        {
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("NAME", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_name"]) <= 1)
-                $arResult["ERROR_MESSAGE"][] = GetMessage("MF_REQ_NAME");       
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("EMAIL", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_email"]) <= 1)
-                $arResult["ERROR_MESSAGE"][] = GetMessage("MF_REQ_EMAIL");
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("MESSAGE", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["MESSAGE"]) <= 3)
-                $arResult["ERROR_MESSAGE"][] = GetMessage("MF_REQ_MESSAGE");
-                 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("user_phone", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_phone"]) <= 3)
-                $arResult["ERROR_MESSAGE"][] = 'Вы не заполнили телефон';
+    $digits = preg_replace('/\D+/', '', (string)$value);
 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("privacy", $arParams["REQUIRED_FIELDS"])) && !($_POST["privacy"]))
-                $arResult["ERROR_MESSAGE"][] = 'Вы не дали свое согласие на обработку персональных данных';
+    if ($digits === '') {
+        return '';
+    }
 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("personal-data", $arParams["REQUIRED_FIELDS"])) && !($_POST["personal-data"]))
-                $arResult["ERROR_MESSAGE"][] = 'Вы не подтвердили, что ознакомлены с политикой обработки персональных данных';
+    if (strlen($digits) === 11 && $digits[0] === '8') {
+        $digits = '7' . substr($digits, 1);
+    } elseif (strlen($digits) === 10) {
+        $digits = '7' . $digits;
+    }
 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("user_street", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_street"]) <= 10)
-                $arResult["ERROR_MESSAGE"][] = 'Вы не заполнили улицу';
- 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("user_house", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_email"]) <= 1)
-                $arResult["ERROR_MESSAGE"][] = 'Вы не заполнили дом';
-                 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("user_porch", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_email"]) <= 1)
-                $arResult["ERROR_MESSAGE"][] = 'Вы не заполнили подъезд';
-                 
-            if((empty($arParams["REQUIRED_FIELDS"]) || in_array("user_apartment", $arParams["REQUIRED_FIELDS"])) && strlen($_POST["user_email"]) <= 1)
-                $arResult["ERROR_MESSAGE"][] = 'Вы не заполнили квартиру';
- 
+    return substr($digits, 0, 11);
+}
+
+function mriFormatPhone($digits)
+{
+    $digits = mriNormalizePhone($digits);
+
+    if (strlen($digits) !== 11 || $digits[0] !== '7') {
+        return (string)$digits;
+    }
+
+    return sprintf(
+        '+7 (%s) %s-%s-%s',
+        substr($digits, 1, 3),
+        substr($digits, 4, 3),
+        substr($digits, 7, 2),
+        substr($digits, 9, 2)
+    );
+}
+
+$isPost =
+    $_SERVER['REQUEST_METHOD'] === 'POST'
+    && (string)($_POST['submit'] ?? '') !== '';
+
+$hashIsValid =
+    !isset($_POST['PARAMS_HASH'])
+    || hash_equals(
+        (string)$arResult['PARAMS_HASH'],
+        (string)$_POST['PARAMS_HASH']
+    );
+
+if ($isPost && $hashIsValid) {
+    $arResult['ERROR_MESSAGE'] = [];
+
+    if (
+        !empty($_POST['website_url'])
+        || !empty($_POST['phone_field'])
+        || !empty($_POST['email_field'])
+    ) {
+        die();
+    }
+
+    if (!check_bitrix_sessid()) {
+        $arResult['ERROR_MESSAGE'][] = GetMessage('MF_SESS_EXP');
+    } else {
+        $name = trim((string)($_POST['user_name'] ?? ''));
+        $email = trim((string)($_POST['user_email'] ?? ''));
+        $message = trim((string)($_POST['MESSAGE'] ?? ''));
+        $phoneDigits = mriNormalizePhone(
+            $_POST['user_phone'] ?? ''
+        );
+        $phone = mriFormatPhone($phoneDigits);
+
+        $personalDataConsent =
+            !empty($_POST['personal-data']);
+        $privacyConsent =
+            !empty($_POST['privacy']);
+        $advertisingConsent =
+            !empty($_POST['advertising']);
+
+        $requiredFields = is_array(
+            $arParams['REQUIRED_FIELDS'] ?? null
+        )
+            ? $arParams['REQUIRED_FIELDS']
+            : [];
+
+        $allRequired =
+            empty($requiredFields)
+            || !in_array('NONE', $requiredFields, true);
+
+        if (
+            $allRequired
+            && (
+                empty($requiredFields)
+                || in_array('NAME', $requiredFields, true)
+            )
+            && strlen($name) < 2
+        ) {
+            $arResult['ERROR_MESSAGE'][] =
+                GetMessage('MF_REQ_NAME');
         }
-        if(strlen($_POST["user_email"]) > 1 && !check_email($_POST["user_email"]))
-            $arResult["ERROR_MESSAGE"][] = GetMessage("MF_EMAIL_NOT_VALID");
-        if($arParams["USE_CAPTCHA"] == "Y")
-        {
-            include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
-            $captcha_code = $_POST["captcha_sid"];
-            $captcha_word = $_POST["captcha_word"];
-            $cpt = new CCaptcha();
-            $captchaPass = COption::GetOptionString("main", "captcha_password", "");
-            if (strlen($captcha_word) > 0 && strlen($captcha_code) > 0)
-            {
-                if (!$cpt->CheckCodeCrypt($captcha_word, $captcha_code, $captchaPass))
-                    $arResult["ERROR_MESSAGE"][] = GetMessage("MF_CAPTCHA_WRONG");
-            }
-            else
-                $arResult["ERROR_MESSAGE"][] = GetMessage("MF_CAPTHCA_EMPTY");
- 
-        }           
-        if(empty($arResult["ERROR_MESSAGE"]))
-        {
-            $arFields = Array(
-                "AUTHOR" => $_POST["user_name"],
-                "AUTHOR_EMAIL" => $_POST["user_email"],
-                "user_phone" => $_POST["user_phone"],
-                "user_street" => $_POST["user_street"],
-                "user_house" => $_POST["user_house"],
-                "user_porch" => $_POST["user_porch"],
-                "user_apartment" => $_POST["user_apartment"],
-                "EMAIL_TO" => $arParams["EMAIL_TO"],
-                "TEXT" => $_POST["MESSAGE"],
+
+        if (
+            $allRequired
+            && in_array('user_phone', $requiredFields, true)
+            && (
+                strlen($phoneDigits) !== 11
+                || $phoneDigits[0] !== '7'
+            )
+        ) {
+            $arResult['ERROR_MESSAGE'][] =
+                'Введите корректный номер телефона.';
+        }
+
+        if (
+            $allRequired
+            && in_array('personal-data', $requiredFields, true)
+            && !$personalDataConsent
+        ) {
+            $arResult['ERROR_MESSAGE'][] =
+                'Необходимо дать согласие на обработку персональных данных.';
+        }
+
+        if (
+            $allRequired
+            && in_array('privacy', $requiredFields, true)
+            && !$privacyConsent
+        ) {
+            $arResult['ERROR_MESSAGE'][] =
+                'Необходимо подтвердить ознакомление с политикой обработки персональных данных.';
+        }
+
+        if (
+            $email !== ''
+            && !check_email($email)
+        ) {
+            $arResult['ERROR_MESSAGE'][] =
+                GetMessage('MF_EMAIL_NOT_VALID');
+        }
+
+        if ($arParams['USE_CAPTCHA'] === 'Y') {
+            include_once(
+                $_SERVER['DOCUMENT_ROOT']
+                . '/bitrix/modules/main/classes/general/captcha.php'
             );
-            if(!empty($arParams["EVENT_MESSAGE_ID"]))
-            {
-                foreach($arParams["EVENT_MESSAGE_ID"] as $v)
-                    if(IntVal($v) > 0)
-                        CEvent::Send($arParams["EVENT_NAME"], SITE_ID, $arFields, "N", IntVal($v));
+
+            $captchaCode = (string)(
+                $_POST['captcha_sid'] ?? ''
+            );
+            $captchaWord = (string)(
+                $_POST['captcha_word'] ?? ''
+            );
+
+            if ($captchaCode === '' || $captchaWord === '') {
+                $arResult['ERROR_MESSAGE'][] =
+                    GetMessage('MF_CAPTHCA_EMPTY');
+            } else {
+                $captcha = new CCaptcha();
+                $captchaPassword = COption::GetOptionString(
+                    'main',
+                    'captcha_password',
+                    ''
+                );
+
+                if (
+                    !$captcha->CheckCodeCrypt(
+                        $captchaWord,
+                        $captchaCode,
+                        $captchaPassword
+                    )
+                ) {
+                    $arResult['ERROR_MESSAGE'][] =
+                        GetMessage('MF_CAPTCHA_WRONG');
+                }
             }
-            else
-                CEvent::Send($arParams["EVENT_NAME"], SITE_ID, $arFields);
- 
-            $_SESSION["MF_NAME"] = htmlspecialcharsbx($_POST["user_name"]);
-            $_SESSION["MF_EMAIL"] = htmlspecialcharsbx($_POST["user_email"]);
-            $_SESSION["MF_user_phone"] = htmlspecialcharsbx($_POST["user_phone"]);
-            $_SESSION["MF_user_street"] = htmlspecialcharsbx($_POST["user_street"]);
-            $_SESSION["MF_user_house"] = htmlspecialcharsbx($_POST["user_house"]);
-            $_SESSION["MF_user_porch"] = htmlspecialcharsbx($_POST["user_porch"]);
-            $_SESSION["MF_user_apartment"] = htmlspecialcharsbx($_POST["user_apartment"]);
- 
-            LocalRedirect($APPLICATION->GetCurPageParam("success=".$arResult["PARAMS_HASH"], Array("success")));
         }
-         
-        $arResult["MESSAGE"] = htmlspecialcharsbx($_POST["MESSAGE"]);
-        $arResult["AUTHOR_NAME"] = htmlspecialcharsbx($_POST["user_name"]);
-        $arResult["AUTHOR_EMAIL"] = htmlspecialcharsbx($_POST["user_email"]);
-        $arResult["user_phone"] = htmlspecialcharsbx($_POST["user_phone"]);
-        $arResult["user_street"] = htmlspecialcharsbx($_POST["user_street"]);
-        $arResult["user_house"] = htmlspecialcharsbx($_POST["user_house"]);
-        $arResult["user_porch"] = htmlspecialcharsbx($_POST["user_porch"]);
-        $arResult["user_apartment"] = htmlspecialcharsbx($_POST["user_apartment"]);
+
+        if (empty($arResult['ERROR_MESSAGE'])) {
+            $consentVersion = trim((string)(
+                $_POST['consent_version']
+                ?? '2026-07-06'
+            ));
+
+            if ($consentVersion === '') {
+                $consentVersion = '2026-07-06';
+            }
+
+            $formUrl = (string)(
+                $_SERVER['HTTP_REFERER'] ?? ''
+            );
+
+            $consentEvidence = mriBuildConsentEvidence(
+                'Обратный звонок — форма «Перезвонить»',
+                [
+                    'personal_data' =>
+                        $personalDataConsent,
+                    'privacy' =>
+                        $privacyConsent,
+                    'advertising' =>
+                        $advertisingConsent,
+                ],
+                $consentVersion,
+                $formUrl,
+                [
+                    'phone' => $phoneDigits,
+                    'email' => $email,
+                ]
+            );
+
+            $consentEvidenceText =
+                mriFormatConsentEvidence(
+                    $consentEvidence
+                );
+
+            $messageWithEvidence = trim($message);
+
+            if ($messageWithEvidence !== '') {
+                $messageWithEvidence .=
+                    PHP_EOL . PHP_EOL;
+            }
+
+            $messageWithEvidence .=
+                $consentEvidenceText;
+
+            $arFields = [
+                'AUTHOR' => $name,
+                'AUTHOR_EMAIL' => $email,
+                'user_phone' => $phone,
+                'EMAIL_TO' => $arParams['EMAIL_TO'],
+                'TEXT' => $messageWithEvidence,
+                'PERSONAL_DATA_CONSENT' =>
+                    $personalDataConsent ? 'Да' : 'Нет',
+                'PRIVACY_ACKNOWLEDGED' =>
+                    $privacyConsent ? 'Да' : 'Нет',
+                'ADVERTISING_CONSENT' =>
+                    $advertisingConsent ? 'Да' : 'Нет',
+                'CONSENT_VERSION' =>
+                    $consentVersion,
+                'CONSENT_EVIDENCE_ID' =>
+                    $consentEvidence['evidence_id'],
+                'CONSENT_SUBMITTED_AT' =>
+                    $consentEvidence['submitted_at'],
+                'FORM_URL' => $formUrl,
+                'CLIENT_IP' =>
+                    $consentEvidence['ip_address'],
+                'CLIENT_USER_AGENT' =>
+                    $consentEvidence['user_agent'],
+            ];
+
+            $mailEventIds = [];
+
+            if (!empty($arParams['EVENT_MESSAGE_ID'])) {
+                foreach ($arParams['EVENT_MESSAGE_ID'] as $messageId) {
+                    if ((int)$messageId > 0) {
+                        $eventId = CEvent::Send(
+                            $arParams['EVENT_NAME'],
+                            SITE_ID,
+                            $arFields,
+                            'N',
+                            (int)$messageId
+                        );
+
+                        if ($eventId) {
+                            $mailEventIds[] = (int)$eventId;
+                        }
+                    }
+                }
+            } else {
+                $eventId = CEvent::Send(
+                    $arParams['EVENT_NAME'],
+                    SITE_ID,
+                    $arFields
+                );
+
+                if ($eventId) {
+                    $mailEventIds[] = (int)$eventId;
+                }
+            }
+
+            $consentEvidence['delivery'] = [
+                'channel' => 'bitrix_mail_event',
+                'event_name' => $arParams['EVENT_NAME'],
+                'mail_event_ids' => $mailEventIds,
+            ];
+
+            mriWriteConsentEvidence(
+                $consentEvidence
+            );
+
+            $_SESSION['MF_NAME'] =
+                htmlspecialcharsbx($name);
+            $_SESSION['MF_EMAIL'] =
+                htmlspecialcharsbx($email);
+            $_SESSION['MF_user_phone'] =
+                htmlspecialcharsbx($phone);
+
+            LocalRedirect(
+                $APPLICATION->GetCurPageParam(
+                    'success=' . $arResult['PARAMS_HASH'],
+                    ['success']
+                )
+            );
+        }
+
+        $arResult['MESSAGE'] =
+            htmlspecialcharsbx($message);
+        $arResult['AUTHOR_NAME'] =
+            htmlspecialcharsbx($name);
+        $arResult['AUTHOR_EMAIL'] =
+            htmlspecialcharsbx($email);
+        $arResult['user_phone'] =
+            htmlspecialcharsbx($phone);
+        $arResult['advertising'] =
+            $advertisingConsent;
+        $arResult['personal-data'] =
+            $personalDataConsent;
+        $arResult['privacy'] =
+            $privacyConsent;
     }
-    else
-        $arResult["ERROR_MESSAGE"][] = GetMessage("MF_SESS_EXP");
+} elseif (
+    (string)($_REQUEST['success'] ?? '')
+    === (string)$arResult['PARAMS_HASH']
+) {
+    $arResult['OK_MESSAGE'] = $arParams['OK_TEXT'];
 }
-elseif($_REQUEST["success"] == $arResult["PARAMS_HASH"])
-{
-    $arResult["OK_MESSAGE"] = $arParams["OK_TEXT"];
-}
- 
-if(empty($arResult["ERROR_MESSAGE"]))
-{
-    if($USER->IsAuthorized())
-    {
-        $arResult["AUTHOR_NAME"] = $USER->GetFormattedName(false);
-        $arResult["AUTHOR_EMAIL"] = htmlspecialcharsbx($USER->GetEmail());
-    }
-    else
-    {
-        if(strlen($_SESSION["MF_NAME"]) > 0)
-            $arResult["AUTHOR_NAME"] = htmlspecialcharsbx($_SESSION["MF_NAME"]);
-        if(strlen($_SESSION["MF_EMAIL"]) > 0)
-            $arResult["AUTHOR_EMAIL"] = htmlspecialcharsbx($_SESSION["MF_EMAIL"]);
-             
-        if(strlen($_SESSION["MF_user_phone"]) > 0)
-            $arResult["user_phone"] = htmlspecialcharsbx($_SESSION["MF_user_phone"]);
- 
-        if(strlen($_SESSION["MF_user_street"]) > 0)
-            $arResult["user_street"] = htmlspecialcharsbx($_SESSION["MF_user_street"]);
- 
-        if(strlen($_SESSION["MF_user_house"]) > 0)
-            $arResult["user_house"] = htmlspecialcharsbx($_SESSION["MF_user_house"]);
- 
-        if(strlen($_SESSION["MF_user_porch"]) > 0)
-            $arResult["user_porch"] = htmlspecialcharsbx($_SESSION["MF_user_porch"]);
- 
-        if(strlen($_SESSION["MF_user_apartment"]) > 0)
-            $arResult["user_apartment"] = htmlspecialcharsbx($_SESSION["MF_user_apartment"]);
-  
+
+if (empty($arResult['ERROR_MESSAGE'])) {
+    if ($USER->IsAuthorized()) {
+        $arResult['AUTHOR_NAME'] =
+            $USER->GetFormattedName(false);
+        $arResult['AUTHOR_EMAIL'] =
+            htmlspecialcharsbx($USER->GetEmail());
+    } else {
+        if (!empty($_SESSION['MF_NAME'])) {
+            $arResult['AUTHOR_NAME'] =
+                htmlspecialcharsbx($_SESSION['MF_NAME']);
+        }
+
+        if (!empty($_SESSION['MF_EMAIL'])) {
+            $arResult['AUTHOR_EMAIL'] =
+                htmlspecialcharsbx($_SESSION['MF_EMAIL']);
+        }
+
+        if (!empty($_SESSION['MF_user_phone'])) {
+            $arResult['user_phone'] =
+                htmlspecialcharsbx($_SESSION['MF_user_phone']);
+        }
     }
 }
- 
-if($arParams["USE_CAPTCHA"] == "Y")
-    $arResult["capCode"] =  htmlspecialcharsbx($APPLICATION->CaptchaGetCode());
- 
+
+if ($arParams['USE_CAPTCHA'] === 'Y') {
+    $arResult['capCode'] = htmlspecialcharsbx(
+        $APPLICATION->CaptchaGetCode()
+    );
+}
+
 $this->IncludeComponentTemplate();

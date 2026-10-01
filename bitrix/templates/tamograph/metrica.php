@@ -42,6 +42,13 @@ $metricId = $metricIds[$subdomain] ?? 88017604;
         'https://mc.yandex.com/metrika/tag.js'
     ];
 
+    function analyticsAllowed() {
+        return Boolean(
+            window.MriCookieConsent &&
+            window.MriCookieConsent.hasAnalytics()
+        );
+    }
+
     function prepareMetrikaQueue() {
         window.ym = window.ym || function () {
             (window.ym.a = window.ym.a || []).push(arguments);
@@ -72,7 +79,6 @@ $metricId = $metricIds[$subdomain] ?? 88017604;
         );
 
         script.onload = function () {
-            script.setAttribute('data-mri-metrika-loaded', 'true');
             window[loadingFlag] = false;
         };
 
@@ -105,7 +111,7 @@ $metricId = $metricIds[$subdomain] ?? 88017604;
     }
 
     function startMetrika() {
-        if (window[initializedFlag]) {
+        if (!analyticsAllowed() || window[initializedFlag]) {
             return;
         }
 
@@ -120,6 +126,43 @@ $metricId = $metricIds[$subdomain] ?? 88017604;
 
         window[initializedFlag] = true;
     }
+
+    function stopMetrika() {
+        if (!window[initializedFlag]) {
+            return;
+        }
+
+        if (typeof window.ym === 'function') {
+            try {
+                window.ym(counterId, 'destruct');
+            } catch (error) {
+            }
+        }
+
+        window[initializedFlag] = false;
+    }
+
+    window.addEventListener(
+        'mriCookieConsentReady',
+        function (event) {
+            if (event.detail && event.detail.analytics) {
+                startMetrika();
+            } else {
+                stopMetrika();
+            }
+        }
+    );
+
+    window.addEventListener(
+        'mriCookieConsentChanged',
+        function (event) {
+            if (event.detail && event.detail.analytics) {
+                startMetrika();
+            } else {
+                stopMetrika();
+            }
+        }
+    );
 
     startMetrika();
 })();

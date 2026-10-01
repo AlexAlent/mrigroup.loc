@@ -1,4 +1,4 @@
-User-agent: *
+User-Agent: *
 Disallow: /auth*
 Disallow: /basket*
 Disallow: /order*
@@ -33,6 +33,6 @@ Disallow: /*back_url_admin=
 Disallow: /*?utm_source=
 Disallow: *?arrFilter*
 Disallow: /local/forms/*
-
 Sitemap: https://mrigroup.ru/sitemap.xml
 Host: https://mrigroup.ru
+Clean-param: etext

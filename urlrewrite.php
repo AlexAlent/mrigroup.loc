@@ -56,7 +56,7 @@ $arUrlRewrite=array (
     'PATH' => '/delivery/index.php',
     'SORT' => 100,
   ),
-  45 => 
+  49 => 
   array (
     'CONDITION' => '#^/catalog/#',
     'RULE' => '',
@@ -120,7 +120,7 @@ $arUrlRewrite=array (
     'PATH' => '/blog/index.php',
     'SORT' => 100,
   ),
-  46 => 
+  48 => 
   array (
     'CONDITION' => '#^/news/#',
     'RULE' => '',

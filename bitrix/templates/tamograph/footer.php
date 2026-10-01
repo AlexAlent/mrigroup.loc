@@ -17,17 +17,13 @@ if($arfotoPageTemplate && is_dir($arFotoPageTemplateBaseDir) . '/' . $arfotoPage
 
 if(file_exists($arFotoPageTemplateDir) . '/header.php') {
     ob_start();
-
     include $arFotoPageTemplateDir . '/header.php';
-
     $APPLICATION->AddViewContent('arfoto_page_header', ob_get_clean());
 }
 
 if(file_exists($arFotoPageTemplateDir) . '/footer.php') {
     ob_start();
-
     include $arFotoPageTemplateDir . '/footer.php';
-
     $APPLICATION->AddViewContent('arfoto_page_footer', ob_get_clean());
 }
 
@@ -46,12 +42,9 @@ if($APPLICATION->GetProperty('arfoto_show_footer_advantages') == 'Y') {
     $APPLICATION->IncludeComponent(
         "parfyonov:variable.set",
         "main_advantages",
-        array(
-        ),
+        array(),
         false,
-        array(
-            'HIDE_ICONS' => 'Y'
-        )
+        array('HIDE_ICONS' => 'Y')
     );
 }
 
@@ -59,12 +52,9 @@ if($APPLICATION->GetProperty('arfoto_show_footer_feedback') == 'Y') {
     $APPLICATION->IncludeComponent(
         "parfyonov:variable.set",
         "main_feedback",
-        array(
-        ),
+        array(),
         false,
-        array(
-            'HIDE_ICONS' => 'Y'
-        )
+        array('HIDE_ICONS' => 'Y')
     );
 } ?>
 
@@ -73,47 +63,42 @@ if($APPLICATION->GetProperty('arfoto_show_footer_feedback') == 'Y') {
         <div class="footer-main">
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-9">
-                    						<?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"bottom_menu", 
-	array(
-		"ROOT_MENU_TYPE" => "bottom",
-		"MENU_CACHE_TYPE" => "A",
-		"MENU_CACHE_TIME" => "36000000",
-		"MENU_CACHE_USE_GROUPS" => "Y",
-		"MENU_CACHE_GET_VARS" => array(
-		),
-		"CACHE_SELECTED_ITEMS" => "N",
-		"MAX_LEVEL" => "1",
-		"USE_EXT" => "N",
-		"DELAY" => "N",
-		"ALLOW_MULTI_SELECT" => "N",
-		"COMPONENT_TEMPLATE" => "bottom_menu",
-		"CHILD_MENU_TYPE" => "left"
-	),
-	false
-);?>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu", 
+                        "bottom_menu", 
+                        array(
+                            "ROOT_MENU_TYPE" => "bottom",
+                            "MENU_CACHE_TYPE" => "A",
+                            "MENU_CACHE_TIME" => "36000000",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "MENU_THEME" => "site",
+                            "CACHE_SELECTED_ITEMS" => "N",
+                            "MENU_CACHE_GET_VARS" => array(),
+                            "MAX_LEVEL" => "1",
+                            "USE_EXT" => "N",
+                            "DELAY" => "N",
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "COMPONENT_TEMPLATE" => "bottom_menu",
+                            "CHILD_MENU_TYPE" => "left"
+                        ),
+                        false
+                    );?>
                 </div>
 
                 <div class="col-12 col-sm-6 col-md-3">
                     <?php $APPLICATION->IncludeComponent(
                         "parfyonov:variable.set",
                         "footer_social",
-                        array(
-                        ),
+                        array(),
                         false,
-                        array(
-                            'HIDE_ICONS' => 'Y'
-                        )
+                        array('HIDE_ICONS' => 'Y')
                     );?>
-					<ul class="footer-social social nav" style="margin-top:10px;">
-						<li>
-							<a class="call_form" style="cursor:pointer;background-color: #ffcb70;border-radius: 10px;color: #111;font-weight: 600;padding: 5px 10px; transition: background-color .3s;">Перезвонить</a>
-						</li>
-					</ul>
-			   </div>
-				
-				
+                    <ul class="footer-social social nav" style="margin-top:10px;">
+                        <li>
+                            <a class="call_form" style="cursor:pointer;background-color: #ffcb70;border-radius: 10px;color: #111;font-weight: 600;padding: 5px 10px; transition: background-color .3s;">Перезвонить</a>
+                        </li>
+                    </ul>
+                </div>
 
                 <div class="col-12">
                     <ul class="footer-contacts nav">
@@ -142,19 +127,19 @@ if($APPLICATION->GetProperty('arfoto_show_footer_feedback') == 'Y') {
             <div class="row">
                 <div class="col">
                     <div class="copyright">
-                        Copyright © 2025. Все права защищены.
+                        Copyright © 2026. Все права защищены.
                     </div>
 
                     <?php $APPLICATION->IncludeComponent(
-	"parfyonov:variable.set", 
-	"footer_policy", 
-	array(
-		"COMPONENT_TEMPLATE" => "footer_policy",
-		"LINK" => "/politika-obrabotki-personalnykh-dannykh/",
-		"TEXT" => "Политика обработки персональных данных"
-	),
-	false
-);?>
+                        "parfyonov:variable.set", 
+                        "footer_policy", 
+                        array(
+                            "COMPONENT_TEMPLATE" => "footer_policy",
+                            "LINK" => "/politika-obrabotki-personalnykh-dannykh/",
+                            "TEXT" => "Политика обработки персональных данных"
+                        ),
+                        false
+                    );?>
                 </div>
 
                 <div class="col-12 col-lg-auto">
@@ -182,44 +167,53 @@ if($APPLICATION->GetProperty('arfoto_show_footer_feedback') == 'Y') {
         false,
         Array('HIDE_ICONS' => 'N')
     );?>
+
+    <div class="container" style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+        <div style="text-align:center; font-size:13px; color:rgba(255,255,255,0.5); line-height:1.5;">
+            ГК «Резонанс» — поставщик медицинского оборудования в России. <strong style="color:rgba(255,255,255,0.7);">Купить медицинское оборудование</strong> для МРТ, КТ, УЗИ и рентген-диагностики под ключ. Контракты с Siemens, Philips, GE, Hitachi, Canon. Сервис 24/7, лизинг, трейд-ин. 300+ проектов в 85 регионах.
+        </div>
+    </div>
+
 </footer>
 
     </div>
 
     <script src="<?php echo getFilePathQueryParamHash(SITE_TEMPLATE_PATH . '/js/vendors.js');?>"></script>
     <script src="<?php echo getFilePathQueryParamHash(SITE_TEMPLATE_PATH . '/js/main.js');?>"></script>
-	
-	
+    
 <script>
-	$(function() {
-		// вызываем форму
-		$(document).on("click", ".call_form", function(e) {
-			e.preventDefault();// отменяем переход по ссылке
+    $(function() {
+        $(document).on("click", ".call_form", function(e) {
+            e.preventDefault();
+            var this_ = $(this);
+            if(this_.hasClass("disabled")) return false;
+            this_.addClass("disabled");
+            
+            $.ajax({
+                url: "/local/forms/form.php",
+                type: "POST",
+                data: {},
+                success: function(data) {
+                    $("body").append(data);
+                    $(".modal_background").css({"display":"flex"});
+                    $(".modal_form").fadeIn();
+                    this_.removeClass("disabled");
+                }
+            });
+        });
 
-			var this_ = $(this);
-			if(this_.hasClass("disabled"))
-				return false;
-			this_.addClass("disabled");
-			
-			$.ajax({
-				url: "/local/forms/form.php",
-				type: "POST",
-				data: {},
-				success: function(data) {
-					$("body").append(data);
-					$(".modal_background").css({"display":"flex"});
-					$(".modal_form").fadeIn();
-				this_.removeClass("disabled");
-				}
-			});
-		});
+        $(document).on("click", ".close_form", function(e) {
+            e.preventDefault();
+            $(".modal_background").hide().remove();
+        });
+    });
+</script>
 
-		// а это для закрытия формы
-		$(document).on("click", ".close_form", function(e) {
-			e.preventDefault();
-			$(".modal_background").hide().remove();
-		});
-	});
+<script>
+    window.addEventListener('onBitrixLiveChat', function(event){
+        var widget = event.detail.widget;
+        widget.setOption('checkSameDomain', false);
+    });
 </script>
 
 <?php $APPLICATION->IncludeComponent(
@@ -227,15 +221,52 @@ if($APPLICATION->GetProperty('arfoto_show_footer_feedback') == 'Y') {
     "body_end",
     [],
     false,
-    [
-        'HIDE_ICONS' => 'Y'
-    ]
+    ['HIDE_ICONS' => 'Y']
 );?>
 
-	<?
-  if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/bitrix/templates/tamograph/metrica.php')) {
-	   include_once($_SERVER['DOCUMENT_ROOT'] . '/bitrix/templates/tamograph/metrica.php');
-  }
+<?
+if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/bitrix/templates/tamograph/metrica.php')) {
+    include_once($_SERVER['DOCUMENT_ROOT'] . '/bitrix/templates/tamograph/metrica.php');
+}
 ?>
+
+<!-- ЗАЩИТА ОТ СПАМА ДЛЯ ВСЕХ ФОРМ -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var forms = document.querySelectorAll('form');
+    
+    forms.forEach(function(form) {
+        // Проверяем, нет ли уже honeypot
+        if (form.querySelector('input[name="website_url"]')) return;
+        
+        // Создаём контейнер для скрытых полей
+        var honeypotDiv = document.createElement('div');
+        honeypotDiv.style.cssText = 'position:absolute!important; left:-9999px!important; top:-9999px!important; opacity:0!important; visibility:hidden!important; height:0!important; overflow:hidden!important; pointer-events:none!important;';
+        
+        // Добавляем 3 скрытых поля
+        ['website_url', 'phone_field', 'email_field'].forEach(function(fieldName) {
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = fieldName;
+            input.value = '';
+            input.tabIndex = -1;
+            input.autocomplete = 'off';
+            honeypotDiv.appendChild(input);
+        });
+        
+        form.insertBefore(honeypotDiv, form.firstChild);
+        
+        // Добавляем время загрузки (для форм send.php)
+        if (form.action && form.action.indexOf('send.php') !== -1) {
+            var timeInput = document.createElement('input');
+            timeInput.type = 'hidden';
+            timeInput.name = 'submit_time';
+            timeInput.value = Math.floor(Date.now() / 1000);
+            form.appendChild(timeInput);
+        }
+    });
+});
+</script>
+
 </body>
 </html>
